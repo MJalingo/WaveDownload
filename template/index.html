@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wave Download</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', path='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="#home">
+                <img
+                    src="{{ url_for('static', path='images/app_logo.ico') }}"
+                    alt="Wave Download Logo"
+                    
+                >
+            </a>
+
+            <a href="#home" class="brand-name">
+                Wave<span>Download</span>
+            </a>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#download">Download</a>
+            <a href="#about">About</a>
+        </div>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- =========================
+         HERO / DOWNLOADER
+    ========================== -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">FAST • SIMPLE • POWERFUL</p>
+
+            <h1>
+                Download.<br>
+                <span>Wave.</span>
+            </h1>
+
+            <p class="description">
+                Download your favorite videos and audio
+                quickly and easily. Paste a link below
+                to get started.
+            </p>
+
+
+            <!-- URL INPUT -->
+
+            <div id="download" class="download-box">
+
+                <form id="downloadForm">
+
+                    <div class="url-input">
+
+                        <input
+                            type="url"
+                            id="videoUrl"
+                            name="url"
+                            placeholder="Paste video URL here..."
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn primary"
+                            id="infoButton"
+                        >
+                            Get Video
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p id="infoResponse"></p>
+
+            </div>
+
+
+            <!-- VIDEO INFORMATION -->
+
+            <div id="videoInfo" class="video-info hidden">
+
+                <div class="video-preview">
+
+                    <img
+                        id="thumbnail"
+                        src=""
+                        alt="Video thumbnail"
+                    >
+
+                </div>
+
+                <div class="video-details">
+
+                    <h2 id="videoTitle">
+                        Video Title
+                    </h2>
+
+                    <p id="videoUploader">
+                        Uploader
+                    </p>
+
+                    <p id="videoDuration">
+                        Duration
+                    </p>
+
+
+                    <!-- QUALITY -->
+
+                    <label for="quality">
+                        Select quality
+                    </label>
+
+                    <select id="quality">
+
+                        <option value="best">
+                            Best Quality
+                        </option>
+
+                        <option value="1080">
+                            1080p
+                        </option>
+
+                        <option value="720">
+                            720p
+                        </option>
+
+                        <option value="480">
+                            480p
+                        </option>
+
+                        <option value="audio">
+                            MP3 / Audio
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="downloadButton"
+                        class="btn primary"
+                        type="button"
+                    >
+                        Download
+                    </button>
+
+
+                    <!-- PROGRESS BAR -->
+
+                    <div id="progress-wrap" hidden>
+
+                        <div class="progress-track">
+                            <div id="progress-bar" class="progress-fill"></div>
+                        </div>
+
+                        <div id="progress-text">0%</div>
+
+                        <button
+                            id="cancelButton"
+                            class="btn secondary"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                    <p id="downloadResponse"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="section">
+
+        <p class="tag">WHAT WE OFFER</p>
+
+        <h2>Wave Download</h2>
+
+        <div class="cards">
+
+            <!-- YouTube -->
+
+            <div class="card">
+
+                <div class="icon">
+                    <img
+                        src="{{ url_for('static', path='images/YT.png') }}"
+                        alt="YouTube"
+                    >
+                </div>
+
+                <h3>YouTube Downloads</h3>
+
+                <p>
+                    Download videos in different quality
+                    levels, from lower resolutions to
+                    high-quality video.
+                </p>
+
+            </div>
+
+
+            <!-- Audio -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🎵
+                </div>
+
+                <h3>Audio Downloads</h3>
+
+                <p>
+                    Extract audio from supported videos
+                    and download it using the audio option.
+                </p>
+
+            </div>
+
+
+            <!-- Quality -->
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>Quality Options</h3>
+
+                <p>
+                    Choose between available quality
+                    options such as 480p, 720p, 1080p
+                    or the best available quality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="contact">
+
+        <div class="contact-container">
+
+            <div>
+
+                <p class="tag">CONTACT</p>
+
+                <h2>
+                    Have a<br>
+                    question?
+                </h2>
+
+                <p>
+                    Wave Download is built to make
+                    downloading supported online content
+                    simple and convenient.
+                </p>
+
+            </div>
+
+            <div>
+
+                <!-- 
+                REVIEW AND QUESTIONS
+                -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Wave Download. Built with FastAPI.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       ELEMENTS
+    ========================== */
+
+    const downloadForm =
+        document.getElementById("downloadForm");
+
+    const videoUrl =
+        document.getElementById("videoUrl");
+
+    const videoInfo =
+        document.getElementById("videoInfo");
+
+    const thumbnail =
+        document.getElementById("thumbnail");
+
+    const videoTitle =
+        document.getElementById("videoTitle");
+
+    const videoUploader =
+        document.getElementById("videoUploader");
+
+    const videoDuration =
+        document.getElementById("videoDuration");
+
+    const quality =
+        document.getElementById("quality");
+
+    const downloadButton =
+        document.getElementById("downloadButton");
+
+    const infoResponse =
+        document.getElementById("infoResponse");
+
+    const downloadResponse =
+        document.getElementById("downloadResponse");
+
+    const progressWrap =
+        document.getElementById("progress-wrap");
+
+    const progressBar =
+        document.getElementById("progress-bar");
+
+    const progressText =
+        document.getElementById("progress-text");
+
+    const cancelButton =
+        document.getElementById("cancelButton");
+
+
+    /* Which download is running, and did the user cancel it? */
+
+    let currentTaskId = null;
+
+    let userCancelled = false;
+
+
+    /* =========================
+       FORMAT DURATION
+    ========================== */
+
+    function formatDuration(seconds) {
+
+        if (!seconds) {
+            return "Unknown duration";
+        }
+
+        const hours =
+            Math.floor(seconds / 3600);
+
+        const minutes =
+            Math.floor((seconds % 3600) / 60);
+
+        const secs =
+            seconds % 60;
+
+        if (hours > 0) {
+
+            return `${hours}:${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+
+        }
+
+        return `${minutes}:${String(secs).padStart(2, "0")}`;
+    }
+
+
+    /* =========================
+       PROGRESS HELPERS
+    ========================== */
+
+    function setProgress(percent, label) {
+
+        progressBar.style.width =
+            percent + "%";
+
+        progressText.textContent =
+            label;
+    }
+
+    function formatBytes(bytes) {
+
+        if (!bytes) {
+            return "";
+        }
+
+        const units = ["B", "KB", "MB", "GB"];
+
+        let value = bytes;
+        let unit = 0;
+
+        while (value >= 1024 && unit < units.length - 1) {
+
+            value /= 1024;
+            unit++;
+        }
+
+        const text =
+            (value >= 100 || unit === 0)
+            ? Math.round(value)
+            : value.toFixed(1);
+
+        return `${text} ${units[unit]}`;
+    }
+
+
+    /*
+     * Adds an estimated size to each quality option,
+     * e.g. "1080p (~125 MB)". Sizes are approximate.
+     */
+
+    function showSizes(sizes) {
+
+        for (const option of quality.options) {
+
+            if (!option.dataset.label) {
+                option.dataset.label = option.textContent.trim();
+            }
+
+            const size =
+                sizes ? sizes[option.value] : null;
+
+            option.textContent =
+                size
+                ? `${option.dataset.label} (~${formatBytes(size)})`
+                : option.dataset.label;
+        }
+    }
+
+    async function sendCancel(taskId) {
+
+        try {
+
+            await fetch(
+                `/api/cancel/${taskId}`,
+                { method: "POST" }
+            );
+
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    function showCancelled() {
+
+        progressWrap.hidden = true;
+
+        downloadResponse.textContent =
+            "Download cancelled.";
+    }
+
+    function wait(ms) {
+
+        return new Promise(
+            resolve => setTimeout(resolve, ms)
+        );
+    }
+
+
+    /*
+     * Polls the server until the download is finished.
+     * Throws an Error if the download fails.
+     */
+
+    async function waitForDownload(taskId) {
+
+        while (true) {
+
+            await wait(700);
+
+            const response =
+                await fetch(`/api/progress/${taskId}`);
+
+            const progress =
+                await response.json();
+
+
+            if (userCancelled || progress.status === "cancelled") {
+
+                return "cancelled";
+            }
+
+            if (progress.status === "error") {
+
+                throw new Error(
+                    progress.error || "Download failed."
+                );
+            }
+
+            if (progress.status === "unknown") {
+
+                throw new Error(
+                    "Download not found. Please try again."
+                );
+            }
+
+            if (progress.status === "finished") {
+
+                setProgress(100, "100% - Done!");
+
+                return "finished";
+            }
+
+            if (progress.status === "processing") {
+
+                setProgress(
+                    100,
+                    "Download complete - processing (merging / converting)..."
+                );
+
+                continue;
+            }
+
+            /* starting / downloading */
+
+            if (progress.status === "starting") {
+
+                setProgress(0, "Getting file size...");
+
+                continue;
+            }
+
+            let label =
+                `${Math.round(progress.percent)}%`;
+
+            if (progress.total) {
+                label += ` of ${formatBytes(progress.total)}`;
+            }
+
+            if (progress.speed) {
+                label += ` - ${progress.speed}`;
+            }
+
+            if (progress.eta) {
+                label += ` - ${progress.eta} left`;
+            }
+
+            setProgress(progress.percent, label);
+        }
+    }
+
+
+    /* =========================
+       GET VIDEO INFORMATION
+    ========================== */
+
+    downloadForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            const url =
+                videoUrl.value.trim();
+
+            if (!url) {
+                return;
+            }
+
+            infoResponse.textContent =
+                "Getting video information...";
+
+            videoInfo.classList.add("hidden");
+
+            progressWrap.hidden = true;
+
+            downloadResponse.textContent = "";
+
+            const formData =
+                new FormData();
+
+            formData.append("url", url);
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/info",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+
+                    infoResponse.textContent =
+                        data.error ||
+                        "Unable to get video information.";
+
+                    return;
+                }
+
+
+                /* Display video information */
+
+                thumbnail.src =
+                    data.thumbnail || "";
+
+                videoTitle.textContent =
+                    data.title || "Unknown title";
+
+                videoUploader.textContent =
+                    data.uploader
+                    ? `By ${data.uploader}`
+                    : "Uploader unavailable";
+
+                videoDuration.textContent =
+                    `Duration: ${formatDuration(data.duration)}`;
+
+
+                showSizes(data.sizes);
+
+                videoInfo.classList.remove("hidden");
+
+                infoResponse.textContent =
+                    "";
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                infoResponse.textContent =
+                    "Something went wrong. Please try again.";
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       DOWNLOAD VIDEO
+    ========================== */
+
+    downloadButton.addEventListener(
+        "click",
+        async function () {
+
+            const url =
+                videoUrl.value.trim();
+
+            const selectedQuality =
+                quality.value;
+
+            if (!url) {
+
+                downloadResponse.textContent =
+                    "Please enter a video URL.";
+
+                return;
+            }
+
+
+            downloadButton.disabled = true;
+
+            downloadButton.textContent =
+                "Downloading...";
+
+            downloadResponse.textContent = "";
+
+            progressWrap.hidden = false;
+
+            setProgress(0, "Starting...");
+
+            userCancelled = false;
+
+            currentTaskId = null;
+
+            cancelButton.classList.remove("hidden");
+
+            cancelButton.disabled = false;
+
+            cancelButton.textContent = "Cancel";
+
+
+            const formData =
+                new FormData();
+
+            formData.append("url", url);
+
+            formData.append("quality", selectedQuality);
+
+
+            try {
+
+                /* 1) Start the download on the server */
+
+                const startResponse =
+                    await fetch(
+                        "/api/download/start",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const start =
+                    await startResponse.json();
+
+                if (!start.success) {
+
+                    throw new Error(
+                        start.error || "Could not start the download."
+                    );
+                }
+
+
+                currentTaskId = start.task_id;
+
+                /* Cancel was clicked before the server had replied */
+
+                if (userCancelled) {
+
+                    await sendCancel(currentTaskId);
+
+                    showCancelled();
+
+                    return;
+                }
+
+
+                /* 2) Wait for it, updating the bar */
+
+                const result =
+                    await waitForDownload(start.task_id);
+
+                if (result === "cancelled") {
+
+                    showCancelled();
+
+                    return;
+                }
+
+                cancelButton.classList.add("hidden");
+
+
+                /* 3) Save the finished file */
+
+                const link =
+                    document.createElement("a");
+
+                link.href =
+                    `/api/file/${start.task_id}`;
+
+                link.download = "";
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                link.remove();
+
+
+                downloadResponse.textContent =
+                    "Download completed successfully.";
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                progressWrap.hidden = true;
+
+                downloadResponse.textContent =
+                    error.message ||
+                    "Something went wrong. Please try again.";
+
+            }
+
+            finally {
+
+                downloadButton.disabled =
+                    false;
+
+                downloadButton.textContent =
+                    "Download";
+
+                currentTaskId = null;
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       CANCEL DOWNLOAD
+    ========================== */
+
+    cancelButton.addEventListener(
+        "click",
+        async function () {
+
+            if (userCancelled) {
+                return;
+            }
+
+            userCancelled = true;
+
+            cancelButton.disabled = true;
+
+            cancelButton.textContent =
+                "Cancelling...";
+
+            progressText.textContent =
+                "Cancelling...";
+
+            /*
+             * If the server hasn't given us a task id yet,
+             * the download handler sends the cancel itself
+             * as soon as it has one.
+             */
+
+            if (currentTaskId) {
+
+                await sendCancel(currentTaskId);
+            }
+        }
+    );
+
+</script>
+
+</body>
+</html>
