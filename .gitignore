@@ -4,7 +4,10 @@
 *.mkv
 *.webm
 *.wav
-*.m4a
+*.mp4a
+
+# Applications
+*.exe
 
 # Python
 __pycache__/
